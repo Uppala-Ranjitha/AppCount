@@ -20,10 +20,7 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState != null){
             scoreA = savedInstanceState.getInt(SCORE_FOR_A);
             scoreB = savedInstanceState.getInt(SCORE_FOR_B);
-            TextView scoreTextView = (TextView) findViewById(R.id.team_score_A);
-            scoreTextView.setText("" + scoreA);
-            TextView scoreTextView1 = (TextView) findViewById(R.id.team_score_B);
-            scoreTextView1.setText("" + scoreB);
+            display(scoreA,scoreB);
         }
         else{
 
@@ -31,37 +28,36 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Points3ForA(View view){
         scoreA = scoreA + 3;
-        TextView scoreTextView = (TextView) findViewById(R.id.team_score_A);
-        scoreTextView.setText("" + scoreA);
+        display(scoreA,scoreB);
     }
     public void Points2ForA(View view){
         scoreA = scoreA + 2;
-        TextView scoreTextView = (TextView) findViewById(R.id.team_score_A);
-        scoreTextView.setText("" + scoreA);
+        display(scoreA,scoreB);
     }
     public void FreeRunForA(View view){
         scoreA = scoreA+ 1;
-        TextView scoreTextView = (TextView) findViewById(R.id.team_score_A);
-        scoreTextView.setText("" + scoreA);
+        display(scoreA,scoreB);
     }
     public void Points3ForB(View view){
         scoreB = scoreB + 3;
-        TextView scoreTextView = (TextView) findViewById(R.id.team_score_B);
-        scoreTextView.setText("" + scoreB);
+        display(scoreA,scoreB);
     }
     public void Points2ForB(View view){
         scoreB = scoreB + 2;
-        TextView scoreTextView = (TextView) findViewById(R.id.team_score_B);
-        scoreTextView.setText("" + scoreB);
+        display(scoreA,scoreB);
     }
     public void FreeRunForB(View view){
         scoreB = scoreB+ 1;
-        TextView scoreTextView = (TextView) findViewById(R.id.team_score_B);
-        scoreTextView.setText("" + scoreB);
+        display(scoreA,scoreB);
     }
     public void Reset(View view) {
         scoreA = 0;
         scoreB = 0;
+        display(scoreA,scoreB);
+    }
+    private void display(int sA, int sB)
+    {   scoreA = sA;
+        scoreB = sB;
         TextView scoreTextView = (TextView) findViewById(R.id.team_score_A);
         scoreTextView.setText("" + scoreA);
         TextView scoreTextView1 = (TextView) findViewById(R.id.team_score_B);
@@ -72,13 +68,9 @@ public class MainActivity extends AppCompatActivity {
     static final String SCORE_FOR_B = "scoreB";
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        //Save the user's current game state
+        /* Save the user's current game state */
         savedInstanceState.putInt(SCORE_FOR_A,scoreA );
         savedInstanceState.putInt(SCORE_FOR_B, scoreB);
-        Log.v("my_tag", "scoreA  being saved is: "+scoreA);
-        Log.v("my_tag", "scoreB  being saved is: "+scoreB);
-
-
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
     }

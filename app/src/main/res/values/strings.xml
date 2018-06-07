@@ -2,8 +2,11 @@
     <string name="app_name">App Count</string>
     <string name="TEAM_A">TEAM A</string>
     <string name="initial_score_team">0</string>
-    <string name="3_points">#3 points</string>
-    <string name="2_points">#2 points</string>
+    <string name="points3">#3 points</string>
+    <string name="points2">#2 points</string>
     <string name="free_throw">free throw</string>
     <string name="Reset">Reset</string>
+    <string name="colorAccent2">#FF4081</string>
+
+    <string name="TEAM_B">TEAM B</string>
     </resources>
